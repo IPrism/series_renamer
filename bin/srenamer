@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require 'series_renamer'
+
+if ARGV.length == 0
+    puts "Usage: path"
+    exit 0
+end
+orig_path = ARGV[0].to_s
+Dir["#{orig_path}/**/*.#{VALID_EXTENTIONS}"].each { |file| SerieRenamer.rename_with_convention(file)}

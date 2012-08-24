@@ -1,8 +1,7 @@
 require "series_renamer/version"
-
-class SeriesRenamer
-  DEBUG = false
-  VALID_EXTENTIONS = "{mpg,avi,srt,m4v,mkv,mp4}"
+DEBUG = false
+VALID_EXTENTIONS = "{mpg,avi,srt,m4v,mkv,mp4}"
+class SerieRenamer
   ##
   # Rename a file with the convention Title - S[season]E[episode].[extention]
   # @param [String] file_to_rename The absolute path to the file
@@ -21,11 +20,4 @@ class SeriesRenamer
     end
     File.rename(file_to_rename, newname) unless newname == file_to_rename
   end
-
-  if ARGV.length == 0
-    puts "Usage: path"
-    exit 0
-  end
-  orig_path = ARGV[0].to_s
-  Dir["#{orig_path}/**/*.#{VALID_EXTENTIONS}"].each { |file| rename_with_convention(file)}
 end
