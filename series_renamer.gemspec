@@ -4,8 +4,8 @@ require File.expand_path('../lib/series_renamer/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Romain Fricon"]
   gem.email         = ["romain.fricon@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Rename series videos and subtitles files with a convention}
+  gem.summary       = %q{Rename series videos and subtitles files with a convention}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
