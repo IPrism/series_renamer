@@ -1,3 +1,3 @@
-module SeriesRenamer
+class SeriesRenamer
   VERSION = "0.0.1"
 end

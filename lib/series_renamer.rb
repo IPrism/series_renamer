@@ -1,7 +1,7 @@
 require "series_renamer/version"
 DEBUG = false
 VALID_EXTENTIONS = "{mpg,avi,srt,m4v,mkv,mp4}"
-class SerieRenamer
+class SeriesRenamer
   ##
   # Rename a file with the convention Title - S[season]E[episode].[extention]
   # @param [String] file_to_rename The absolute path to the file

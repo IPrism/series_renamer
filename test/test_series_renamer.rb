@@ -14,8 +14,8 @@ class SeriesRenamerTest < Test::Unit::TestCase
 	def test_filename_with_convention
 		file_path = "/test_series/Serie\ 1/Season\ 1/ep1.avi"
 		attended_file = "/test_series/Serie\ 1/Season\ 1/Serie\ 1\ -\ S01E01.avi"
-		SerieRenamer.publicize_methods do
-			assert_equal(attended_file, SerieRenamer.new.filename_with_convention(file_path))
+		SeriesRenamer.publicize_methods do
+			assert_equal(attended_file, SeriesRenamer.new.filename_with_convention(file_path))
 		end
 	end
 end
