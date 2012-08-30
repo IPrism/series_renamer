@@ -7,7 +7,7 @@ class SeriesRenamer
   # @param [String] file_to_rename The absolute path to the file
   # @author romain
   def self.rename_with_convention(file_to_rename)  
-    newname = filename_with_convention file_to_rename
+    newname = self.filename_with_convention file_to_rename
     File.rename(file_to_rename, newname) unless newname == file_to_rename
   end
   private
@@ -16,7 +16,7 @@ class SeriesRenamer
   # @param [String] file_to_rename The absolute path to the file
   # @returns [String] the new filename who respects the convention
   # @author romain
-  def filename_with_convention(old_filename)
+  def self.filename_with_convention(old_filename)
     episode = File.basename(old_filename).to_s[/(?:E|eP?|x|-)(\d+)/i, 1] 
     episode = "0#{episode}" if episode.length == 1
     file_tab = old_filename.split "\/"
