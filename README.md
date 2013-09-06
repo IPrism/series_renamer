@@ -1,3 +1,5 @@
+[![Build Status](http://travis-ci.org/IPrism/series_renamer.png)](http://travis-ci.org/IPrism/series_renamer)
+
 #Series renamer
 Rename the series episodes (video and subtitles) withe the following convention Serie_name - S[season_number]E[episode_number].[extention]
 
