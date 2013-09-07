@@ -1,7 +1,10 @@
 require "series_renamer/version"
+
 DEBUG = false
 VALID_EXTENTIONS = "{mpg,avi,srt,m4v,mkv,mp4}"
+
 class SeriesRenamer
+  DEFAULT_REGEX =  /(?:E|eP?|x|-)(\d+)/i
   ##
   # Rename a file with the convention Title - S[season]E[episode].[extention]
   # @param [String] file_to_rename The absolute path to the file
@@ -16,10 +19,12 @@ class SeriesRenamer
   ##
   # Generate the new filename with the convention: Title - S[season]E[episode].[extention]
   # @param [String] file_to_rename The absolute path to the file
-  # @returns [String] the new filename who respects the convention
+  # @param [Hash] options The optionnal parameters
+  # @returns [String] The new filename who respects the convention
   # @author romain
-  def self.filename_with_convention(old_filename)
-    episode = File.basename(old_filename).to_s[/(?:E|eP?|x|-)(\d+)/i, 1]
+  def self.filename_with_convention(old_filename, options = {})
+    options[:regex] ||= DEFAULT_REGEX
+    episode = File.basename(old_filename).to_s[options[:regex], 1]
     unless episode.nil?
       episode = "0#{episode}" if episode.length == 1
       file_tab = old_filename.split "\/"
@@ -33,6 +38,5 @@ class SeriesRenamer
       end
       return newname
     end
-    return nil 
   end
 end
